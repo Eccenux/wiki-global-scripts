@@ -1,1 +1,0 @@
-mw.loader.getScript('https://en.wikipedia.org/w/index.php?title=User:Jdlrobson/vector-max-width-toggle.js&action=raw&ctype=text/javascript');
