@@ -2,7 +2,18 @@
 #t-wikibase span::before {
 	background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Wikidata-logo-en.svg/16px-Wikidata-logo-en.svg.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: center bottom;
+	content: " ";
+	display: inline-block;
+	width: 12px;
+	height: 16px;
+	padding-right: .5em;
+}
+/* Link to a current revision */
+#t-permalink span::before {
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Clock-By-Atif_-Arshad-1230728.svg/12px-Clock-By-Atif_-Arshad-1230728.svg.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
 	content: " ";
 	display: inline-block;
 	width: 12px;
