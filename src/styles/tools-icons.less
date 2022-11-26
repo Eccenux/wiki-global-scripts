@@ -25,3 +25,22 @@
 	padding-right: .5em;
 	background-position: center;
 }
+
+/**
+	Edit form elements order.
+	
+	Przenieś część rzeczy na górę.
+	(efektywnie zbliża podgląd do przycisków)
+*/
+#editform {
+	display:grid;
+}
+.mw-editTools {
+	grid-row-start: 1;
+}
+.templatesUsed {
+	grid-row-start: 2;
+}
+.limitreport {
+	grid-row-start: 3;
+}
