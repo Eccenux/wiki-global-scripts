@@ -5,9 +5,46 @@
 /* @sa [[User:Nux/common.css]] */
 
 // if: edit
-if ( mw.config.get('wgAction') === 'edit' || mw.config.get('wgAction') === 'submit' ) {
-	mw.loader.load( 'https://meta.wikimedia.org/wiki/User:Nux/editToolsCollapse.js?action=raw&ctype=text/javascript' );
+var is_edit = mw.config.get("wgAction") == "edit" || mw.config.get("wgAction") == "submit";
+
+// collapse edit tools section
+if (is_edit) {
+	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&title=User:Nux/editToolsCollapse.js' );
 }
 
 // [[View_it!_Tool]]
-mw.loader.load( '//meta.wikimedia.org/w/index.php?title=User:SuperHamster/view-it-full.js&action=raw&ctype=text/javascript' ); // Backlink: [[meta:User:SuperHamster/view-it-full.js]]
+mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&title=User:SuperHamster/view-it-full.js' );
+
+// popups options
+window.popupDisableReferencePreview=true;
+
+/* [[Wikipedysta:Nux/personalizacja.js]] - top links and stuff */
+if (mw.config.get("skin") ===  "vector-2022")
+{
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/css&title=Wikipedysta:Nux/personalizacja.css", "text/css");
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/personalizacja.js");
+}
+
+/* MSz sources links */
+mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/css&title=Wikipedysta:Msz2001/sourcecode-links.css", "text/css");
+mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Msz2001/sourcecode-links.js");
+
+/* wikiEditor-ui-toolbar: ref, redir, template */
+if (is_edit)
+{
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/css&title=Wikipedysta:Nux/editor-toolbar-icons.css", "text/css");
+}
+
+// WikiDane i interwiki
+if (mw.config.get("wgSiteName") === "Wikipedia") {
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Msz2001/wstaw-interwiki.js");
+}
+
+// debug mw.config.get(key)
+mw.loader.load("http://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/wgVars.js");
+
+// [[Wikipedia:pl:Wikipedia:Narzędzia/Wyszukiwanie i zamiana]]
+if (is_edit)
+{
+	mw.loader.load("http://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/SearchBox.js");
+}
