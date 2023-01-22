@@ -46,5 +46,7 @@ mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javas
 // [[Wikipedia:pl:Wikipedia:Narzędzia/Wyszukiwanie i zamiana]]
 if (is_edit)
 {
-	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/SearchBox.js");
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/css&title=Wikipedysta:Nux/SearchBox.css", "text/css");
+	//mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/SearchBox.js");
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/SearchBox.dev.js");
 }
