@@ -41,10 +41,10 @@ if (mw.config.get("wgSiteName") === "Wikipedia") {
 }
 
 // debug mw.config.get(key)
-mw.loader.load("http://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/wgVars.js");
+mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/wgVars.js");
 
 // [[Wikipedia:pl:Wikipedia:Narzędzia/Wyszukiwanie i zamiana]]
 if (is_edit)
 {
-	mw.loader.load("http://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/SearchBox.js");
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&title=Wikipedysta:Nux/SearchBox.js");
 }
