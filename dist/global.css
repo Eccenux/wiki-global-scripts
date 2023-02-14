@@ -45,10 +45,20 @@
 	display: inline-block;
 	box-sizing: border-box;
 }
-/* Edit interlanguage links (en.wiki at al) *
+/* Edit interlanguage links (en.wiki at al) */
 .wb-langlinks-link > a::before {
-	padding-right: .5em;
-	background-position: center;
+	background-image: url(/w/load.php?modules=skins.vector.icons&image=language&format=original&skin=vector-2022&version=ia7tj);
+	background-size: .9em;
+	width: .9em;
+	height: .9em;
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	margin-bottom: -1px;
+	margin-left: calc(-.9em - .5ch);
+	margin-right: .5ch;
+	content: " ";
+	display: inline-block;
+	box-sizing: border-box;
 }
 
 /**
