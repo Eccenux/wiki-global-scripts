@@ -15,7 +15,7 @@
 /*
 	Icons on links in a sidebar.
 */
-/* wikidata link (en.wiki at al) */
+/* Wikidata link (en.wiki at al) */
 #t-wikibase span::before {
 	background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/66/Wikidata-logo-en.svg);
 	background-size: .9em;
@@ -30,8 +30,7 @@
 	display: inline-block;
 	box-sizing: border-box;
 }
-
-/* Link to a current revision */
+/* Current revision link */
 #t-permalink span::before {
 	background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a1/Clock-By-Atif_-Arshad-1230728.svg);
 	background-size: .9em;
@@ -46,7 +45,7 @@
 	display: inline-block;
 	box-sizing: border-box;
 }
-/* Edit interlanguage links (en.wiki at al) */
+/* Edit interlanguage links (en.wiki at al) *
 .wb-langlinks-link > a::before {
 	padding-right: .5em;
 	background-position: center;
