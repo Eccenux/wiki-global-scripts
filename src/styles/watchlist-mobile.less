@@ -5,6 +5,14 @@
 /* @sa [[User:Nux/common.css]] */
 
 /*
+Hidden #mw-panel-toc in Vector-2022 overlaps titlebar of pages
+https://phabricator.wikimedia.org/T328719
+*/
+#mw-panel-toc:-moz-only-whitespace {
+  display: none;
+}
+
+/*
 	Minor
 */
 /* lang on special pages */
