@@ -12,6 +12,16 @@
 	display: none;
 }
 
+/* [[phab:T330386]] DiscussionTools new topic button flickers on Firefox mobile */
+.ext-discussiontools-init-new-topic-open .ext-discussiontools-init-new-topic, .ext-discussiontools-init-new-topic-opened .ext-discussiontools-init-new-topic, .client-nojs .ext-discussiontools-init-new-topic {
+	transform: none !important;
+	transition: none !important;
+	position: sticky !important;
+}
+.ext-discussiontools-init-new-topic {
+  /* transition: transform 250ms,opacity 250ms; */
+}
+
 /*
 	Icons on links in a sidebar.
 */
