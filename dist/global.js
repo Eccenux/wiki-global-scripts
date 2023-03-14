@@ -21,7 +21,7 @@
 var is_edit = mw.config.get("wgAction") == "edit" || mw.config.get("wgAction") == "submit";
 
 // sync notification over tabs
-mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&x_smaxage=21600&x_maxage=86400&title=User:Nux/notificationsSync.js' );
+mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86402&title=User:Nux/notificationsSync.js' );
 
 // collapse edit tools section
 if (is_edit) {
