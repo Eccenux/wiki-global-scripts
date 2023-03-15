@@ -19,6 +19,7 @@
 
 // if: edit
 var is_edit = mw.config.get("wgAction") == "edit" || mw.config.get("wgAction") == "submit";
+var is_mobileSkin = mw.config.get('skin') == 'minerva';
 
 // sync notification over tabs
 mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86403&title=User:Nux/notificationsSync.js' );
@@ -30,9 +31,11 @@ if (is_edit) {
 }
 
 // [[View_it!_Tool]]
-mw.loader.using([ 'mediawiki.api' ]).then( function() {
-	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:SuperHamster/view-it-full.js' );
-});
+if (!is_mobileSkin) {	// brakes on mobile (TypeError)
+	mw.loader.using([ 'mediawiki.api' ]).then( function() {
+		mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:SuperHamster/view-it-full.js' );
+	});
+}
 
 // popups options
 window.popupDisableReferencePreview=true;
