@@ -30,7 +30,9 @@ if (is_edit) {
 }
 
 // [[View_it!_Tool]]
-mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:SuperHamster/view-it-full.js' );
+mw.loader.using([ 'mediawiki.api' ]).then( function() {
+	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:SuperHamster/view-it-full.js' );
+});
 
 // popups options
 window.popupDisableReferencePreview=true;
