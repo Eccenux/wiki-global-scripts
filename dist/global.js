@@ -22,7 +22,7 @@ var is_edit = mw.config.get("wgAction") == "edit" || mw.config.get("wgAction") =
 var is_mobileSkin = mw.config.get('skin') == 'minerva';
 
 // sync notification over tabs
-mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86404&title=User:Nux/notificationsSync.js' );
+mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86121&title=User:Nux/notificationsSync.js' );
 mw.hook('userjs.NuxNotificationSync.init').add(function(nns, version) {console.log('[notificationSync] init hook', {nns:nns, v:version})});
 
 // collapse edit tools section
