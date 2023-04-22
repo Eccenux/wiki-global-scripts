@@ -33,11 +33,15 @@ if (is_edit) {
 //  [[User_talk:Nux/collapseEditReports.js]]
 //  [[m:User_talk:Nux/collapseEditReports.js]]
 if (is_edit) {
-	//mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86406&title=User:Nux/collapseEditReports.js' );
-	if (typeof window.tempGreasExec === 'function') {
-		tempGreasExec();
-	}
+	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86407&title=User:Nux/collapseEditReports.js' );
 }
+
+// greasmonkey mw test helper
+/**
+if (typeof window.tempGreasExec === 'function') {
+	tempGreasExec(mw);
+}
+/**/
 
 // [[View_it!_Tool]]
 if (!is_mobileSkin) {	// brakes on mobile (TypeError)
