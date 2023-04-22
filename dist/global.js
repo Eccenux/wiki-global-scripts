@@ -33,7 +33,7 @@ if (is_edit) {
 //  [[User_talk:Nux/collapseEditReports.js]]
 //  [[m:User_talk:Nux/collapseEditReports.js]]
 if (is_edit) {
-	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86404&title=User:Nux/collapseEditReports.js' );
+	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86405&title=User:Nux/collapseEditReports.js' );
 }
 
 // [[View_it!_Tool]]
