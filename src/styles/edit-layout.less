@@ -109,3 +109,13 @@
 body:not(.nux-editToolsCollapse-done) .mw-editTools {
 	display: none;
 }
+
+/* [[User_talk:Nux/collapseEditReports.js]] */
+/* [[m:User_talk:Nux/collapseEditReports.js]] */
+body:not(.nux-collapseEditReports-done) 
+	#editform 
+	:is(.templatesUsed, .wikibase-entity-usage, .limitreport) 
+	> :is(ul, div:nth-child(2))
+{
+	display:none !important;
+}
