@@ -30,6 +30,12 @@ if (is_edit) {
 	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:Nux/editToolsCollapse.js' );
 }
 
+//  [[User_talk:Nux/collapseEditReports.js]]
+//  [[m:User_talk:Nux/collapseEditReports.js]]
+if (is_edit) {
+	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:Nux/collapseEditReports.js' );
+}
+
 // [[View_it!_Tool]]
 if (!is_mobileSkin) {	// brakes on mobile (TypeError)
 	mw.loader.using([ 'mediawiki.api' ]).then( function() {
