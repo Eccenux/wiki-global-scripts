@@ -20,6 +20,7 @@
 // if: edit
 var is_edit = mw.config.get("wgAction") == "edit" || mw.config.get("wgAction") == "submit";
 var is_mobileSkin = mw.config.get('skin') == 'minerva';
+var is_botSkin = mw.config.get('skin') == 'monobook';	// ~jsbot
 
 // sync notification over tabs
 mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86121&title=User:Nux/notificationsSync.js' );
@@ -44,7 +45,7 @@ if (typeof window.tempGreasExec === 'function') {
 /**/
 
 // [[View_it!_Tool]]
-if (!is_mobileSkin) {	// brakes on mobile (TypeError)
+if (!is_mobileSkin && !is_botSkin) {	// brakes on mobile (TypeError)
 	mw.loader.using([ 'mediawiki.api' ]).then( function() {
 		mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:SuperHamster/view-it-full.js' );
 	});
@@ -71,7 +72,7 @@ if (is_edit)
 }
 
 // WikiDane i interwiki
-if (mw.config.get("wgSiteName") === "Wikipedia") {
+if (mw.config.get("wgSiteName") === "Wikipedia" && !is_botSkin) {
 	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=Wikipedysta:Msz2001/wstaw-interwiki.js");
 }
 
