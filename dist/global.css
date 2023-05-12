@@ -119,3 +119,62 @@ body:not(.nux-collapseEditReports-done)
 {
 	display:none !important;
 }
+
+
+/* Mobile Watchlist. */
+@media (hover: none) and (pointer: coarse) {
+
+	/*
+		Fixing button spacing (classic, fat fingers problem).
+
+		li.mw-changeslist-line
+			span.mw-changeslist-line-prefix
+				a.mw-unwatch-link
+				a.mw-watch-link
+			span.mw-changeslist-line-inner
+				div.mw-changeslist-links
+				...
+				span.mw-pager-tools
+	*/
+
+	li.mw-changeslist-line {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: .5em;
+	}
+
+	li.mw-changeslist-line .mw-changeslist-line-prefix {
+		width: auto;
+		height: auto;
+	}
+	li.mw-changeslist-line .mw-changeslist-line-inner {
+		display: contents;
+	}
+	li.mw-changeslist-line::before,
+	li.mw-changeslist-line .mw-changeslist-line-inner > :empty {
+		display: none !important;
+	}
+	li.mw-changeslist-line .mw-changeslist-line-inner > *, ul.mw-contributions-list li > * {
+		margin: 0;
+	}
+
+	li.mw-changeslist-line .mw-changeslist-line-prefix a {
+		padding: .2em .6em;
+		background: whitesmoke;
+		display: inline-block;
+		box-sizing: border-box;
+	}
+
+	li.mw-changeslist-line .mw-pager-tools {
+		padding-top: .8em;
+	}
+
+	li.mw-changeslist-line .mw-tag-marker {
+		border-radius: .6em;
+	}
+	li.mw-changeslist-line .mw-userlink {
+		padding: 0 !important;
+	}
+
+}
