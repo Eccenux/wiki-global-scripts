@@ -177,4 +177,9 @@ body:not(.nux-collapseEditReports-done)
 		padding: 0 !important;
 	}
 
+	/* unwatched (default style doesn't work due to display:contents) */
+	.mw-changelist-line-inner-unwatched > * {
+		opacity: 0.5;
+		text-decoration: line-through;
+	}
 }
