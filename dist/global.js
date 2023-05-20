@@ -58,7 +58,7 @@ window.popupDisableReferencePreview=true;
 if (mw.config.get("skin") ===  "vector-2022")
 {
 	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/css&smaxage=86400&maxage=259201&title=Wikipedysta:Nux/personalizacja.css", "text/css");
-	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86401&title=Wikipedysta:Nux/personalizacja.js");
+	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86402&title=Wikipedysta:Nux/personalizacja.js");
 }
 
 /* MSz sources links */
