@@ -5,6 +5,54 @@
 /* @sa [[User:Nux/common.css]] */
 
 /*
+	Tweaks and fixes.
+	[[w:en:Wikipedia:Tools/Navigation popups]]
+*/
+/* trapezoid guide for the cursor */	
+.popup_menu::before {
+	content: '';
+	display: block;
+	position: absolute;
+	height: 1.5em;
+	top: -1.4em;
+	left: -1.2em;
+	width: 9em;
+	transform: perspective(1px) rotateX(1deg);
+}
+/* actions are shorter */	
+.popupTopLinks > div:nth-child(2) .popup_menu::before {
+	width: 6em;
+}
+/* make the trapezoid go behing menu items */
+.popup_menu::before {
+	z-index: 1;
+}
+.popup_menu li {
+	position: relative;
+	z-index: 2;
+}
+
+/* additional hover margin on the sides */
+.popup_menu li::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	height: calc(100% + .5em);
+	left: -1.7em;
+	width: 1.7em;
+}
+.popup_menu li::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	height: calc(100% + .5em);
+	left: calc(10em - 1px);	/* depends on the width of the menu */
+	width: 1em;
+}
+
+/*
 	Minor
 */
 /* viewit tab with no real use...  */
