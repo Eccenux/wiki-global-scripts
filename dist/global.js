@@ -45,7 +45,10 @@ if (typeof window.tempGreasExec === 'function') {
 /**/
 
 // [[View_it!_Tool]]
-if (!is_mobileSkin && !is_botSkin) {	// brakes on mobile (TypeError)
+// brakes on mobile (TypeError)
+// not for "jsbot"
+// not for Commons (nonsens pictures e.g. on main)
+if (!is_mobileSkin && !is_botSkin && !location.host.startsWith('commons.')) {
 	mw.loader.using([ 'mediawiki.api' ]).then( function() {
 		mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:SuperHamster/view-it-full.js' );
 	});
