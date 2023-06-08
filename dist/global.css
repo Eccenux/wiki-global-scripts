@@ -8,6 +8,10 @@
 	Tweaks and fixes.
 	[[w:en:Wikipedia:Tools/Navigation popups]]
 */
+.popup_menu:hover
+{
+	box-shadow: 0 0 5px 5px rgba(179, 179, 255, 0.3)
+}
 /* colors for testing *
 .popup_menu li::after,
 .popup_menu li::before,
