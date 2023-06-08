@@ -26,12 +26,8 @@
 	height: 1.5em;
 	top: -1.4em;
 	left: -1.2em;
-	width: 6em;
+	width: calc(2 * var(--navpop-m-len, 6ch));
 	transform: perspective(1px) rotateX(1deg);
-}
-/* user is larger, but only in pl... *
-.popupTopLinks > div:nth-child(3) .popup_menu::before {
-	width: 9em;
 }
 /* make the trapezoid go behing menu items */
 .popup_menu::before {
