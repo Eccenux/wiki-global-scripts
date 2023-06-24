@@ -1,7 +1,7 @@
 import less from 'less';
 import fs from 'fs';
 
-function build_less() {
+export function build_less() {
 	let srcLess = 'src/_main.less';
 	let dstCss = 'dist/global.css';
 	return new Promise(function(resolve, reject) {
@@ -34,8 +34,10 @@ function build_less() {
 	});
 }
 
+/**
 (async () => {
 	console.log(new Date().toISOString(), 'start');
 	await build_less();
 	console.log(new Date().toISOString(), 'done');
 })();
+/**/
