@@ -4,6 +4,11 @@
 /* @sa [[User:Nux/common.js]] */
 /* @sa [[User:Nux/common.css]] */
 
+/**
+	Dev version.
+	https://github.com/Eccenux/wiki-global-scripts
+*/
+
 /*
 	Cache
 	smaxage = proxy[s]
