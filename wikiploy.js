@@ -2,13 +2,13 @@
  * Dev/staging deploy.
  */
 import {DeployConfig, Wikiploy} from 'wikiploy';
-import {build_less} from './build.js';
+import {build_js, build_less} from './build.js';
 
 const ployBot = new Wikiploy();
 
 // custom summary
 ployBot.summary = () => {
-	return 'less build';
+	return 'repo url';
 }
 // default site
 ployBot.site = "meta.wikimedia.org"; 
@@ -16,6 +16,7 @@ ployBot.site = "meta.wikimedia.org";
 (async () => {
 	// awaiting build
 	await build_less();
+	await build_js();
 
 	// deploy
 	const configs = [];

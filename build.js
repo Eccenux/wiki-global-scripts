@@ -1,5 +1,6 @@
 import less from 'less';
 import fs from 'fs';
+import fsa from 'fs/promises'
 
 export function build_less() {
 	let srcLess = 'src/_main.less';
@@ -32,6 +33,13 @@ export function build_less() {
 			});
 		});
 	});
+}
+
+export async function build_js() {
+	let srcJs = 'src/global.js';
+	let dstJs = 'dist/global.js';
+	const data = await fsa.readFile(srcJs, 'utf8');
+	await fsa.writeFile(dstJs, data);
 }
 
 /**
