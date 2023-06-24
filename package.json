@@ -1,0 +1,14 @@
+{
+	"name": "wiki-global-script",
+	"version": "1.0.0",
+	"description": "Global CSS and JS builder and deployment.",
+	"author": "Maciej Nux Jaros",
+	"license": "MIT",
+	"type": "module",
+	"devDependencies": {
+		"eslint": "7.4.0"
+	},
+	"dependencies": {
+		"wikiploy": "^1.3.1"
+	}
+}
