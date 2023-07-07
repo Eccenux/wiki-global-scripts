@@ -6,10 +6,10 @@
 	"license": "MIT",
 	"type": "module",
 	"devDependencies": {
-		"eslint": "7.4.0"
+		"eslint": "8.x"
 	},
 	"dependencies": {
-		"less": "^4.1.3",
-		"wikiploy": "^1.3.1"
+		"less": "4.x",
+		"wikiploy": "1.x"
 	}
 }
