@@ -164,6 +164,9 @@
 body:not(.nux-editToolsCollapse-done) .mw-editTools {
   display: none;
 }
+body .templatesUsed {
+  margin-top: 0;
+}
 /* [[User_talk:Nux/collapseEditReports.js]] */
 /* [[m:User_talk:Nux/collapseEditReports.js]] */
 body:not(.nux-collapseEditReports-done) #editform .templatesUsed > ul,
