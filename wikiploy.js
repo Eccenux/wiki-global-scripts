@@ -1,14 +1,15 @@
 /**
  * Dev/staging deploy.
  */
-import {DeployConfig, Wikiploy} from 'wikiploy';
+import {DeployConfig, WikiployLite} from 'wikiploy';
 import {build_js, build_less} from './build.js';
 
-const ployBot = new Wikiploy();
+import * as botpass from './bot.config.mjs';
+const ployBot = new WikiployLite(botpass);
 
 // custom summary
 ployBot.summary = () => {
-	return 'repo url';
+	return 'margin tweak';
 }
 // default site
 ployBot.site = "meta.wikimedia.org"; 
