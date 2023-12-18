@@ -112,3 +112,12 @@ if ( mw.config.get('wgNamespaceNumber') == 0 ) {
 		link.setAttribute( 'title', 'Autorzy i inne stats (otwiera się w nowym tabie)' );
 	});
 }
+
+// [[MediaWiki:Gadgets-definition]] formatter (links and stuff)
+if (mw.config.get("wgCanonicalNamespace") == "MediaWiki"
+	&& mw.config.get("wgTitle") === "Gadgets-definition"
+	&& document.querySelector(".mw-parser-output")
+)
+{
+	mw.loader.load("https://meta.wikimedia.org/w/index.php?title=User:Nux/gadgets-definition-ux.js&action=raw&ctype=text/javascript");
+}
