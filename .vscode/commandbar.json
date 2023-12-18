@@ -1,0 +1,27 @@
+// Requires `gsppvo.vscode-commandbar`.
+// Also: in settings (UI), `files.associations`, add `commandbar.json: jsonc` (json with comments).
+{
+	"skipTerminateQuickPick": true,
+	"skipSwitchToOutput": false,
+	"skipErrorMessage": true,
+	"commands": [
+		// running build as a task (so that prompts work)
+		{
+			"text": "build and wikiploy",
+			"tooltip": "Build and Deploy (wikiploy).",
+			"color": "lightgreen",
+			"commandType": "palette",
+			"command": "workbench.action.tasks.runTask|Run deploy",
+			"priority": 0
+		}
+		// ,
+		// {
+		// 	"text": "build and wikiploy",
+		// 	"tooltip": "Build and Deploy (wikiploy).",
+		// 	"color": "lightgreen",
+		// 	"commandType": "exec",
+		// 	"command": "npm run deploy",
+		// 	"priority": 0
+		// }
+	]
+}
