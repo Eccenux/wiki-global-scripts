@@ -10,7 +10,7 @@ npm i
 
 Build and deploy:
 ```bash
-npm run deploy
+npm run rollout
 ```
 
 ## External links
