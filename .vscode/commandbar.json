@@ -7,8 +7,17 @@
 	"commands": [
 		// running build as a task (so that prompts work)
 		{
-			"text": "build and wikiploy",
-			"tooltip": "Build and Deploy (wikiploy).",
+			"text": "build less",
+			"tooltip": "Build Less.",
+			"color": "lightgreen",
+			"commandType": "script",
+			"command": "build-less",
+			"priority": 0
+		},
+		// running build as a task (so that prompts work)
+		{
+			"text": "wikiploy",
+			"tooltip": "Deploy (wikiploy).",
 			"color": "lightgreen",
 			"commandType": "palette",
 			"command": "workbench.action.tasks.runTask|Run deploy",
@@ -20,7 +29,7 @@
 		// 	"tooltip": "Build and Deploy (wikiploy).",
 		// 	"color": "lightgreen",
 		// 	"commandType": "exec",
-		// 	"command": "npm run deploy",
+		// 	"command": "npm run rollout",
 		// 	"priority": 0
 		// }
 	]

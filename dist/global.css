@@ -8,8 +8,15 @@
 	https://github.com/Eccenux/wiki-global-scripts
 */
 /*
-	Tweaks and fixes.
-	[[w:en:Wikipedia:Tools/Navigation popups]]
+	Popups mouse guides.
+
+	For: [[w:en:Wikipedia:Tools/Navigation popups]]
+	The idea was to make the more or less invisible guides (roads) for the mouse from a link to the popups menu.
+	Also added some safe space around the menu so that the mouse doesn't slip from the edge.
+
+	@author Maciej Nux
+	@license CC-BY
+	@started 2023-06
 */
 .popup_menu:hover {
   box-shadow: 0 0 5px 5px rgba(179, 179, 255, 0.3);
@@ -65,6 +72,9 @@
 }
 /*
 	Minor
+
+	@author Maciej Nux
+	@license PD-trivia / CC0
 */
 /* viewit tab with no real use...  */
 #ca-viewitgallery {
@@ -88,6 +98,10 @@
 }
 /*
 	Icons on links in a sidebar.
+
+	@author Maciej Nux
+	@license PD-trivia / CC0
+	@started 2022-08
 */
 /* wide page tools */
 #vector-page-tools-pinned-container .vector-page-tools {
@@ -143,11 +157,15 @@
 .vector-dropdown-content .mw-list-item a {
   display: inline-block;
 }
-/**
+/*
 	Edit form elements order.
 	
 	Przenieś część rzeczy na górę.
 	(efektywnie zbliża podgląd do przycisków)
+
+	@author Maciej Nux
+	@license CC-BY
+	@started 2022-11
 */
 #editform {
   display: grid;
@@ -177,7 +195,13 @@ body:not(.nux-collapseEditReports-done) #editform .wikibase-entity-usage > div:n
 body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2) {
   display: none !important;
 }
-/* Mobile Watchlist. */
+/*
+	Mobile Watchlist UX.
+	
+	@author Maciej Nux
+	@license CC-BY
+	@started 2023-05
+*/
 @media (hover: none) and (pointer: coarse) {
   /*
 		Fixing button spacing (classic, fat fingers problem).

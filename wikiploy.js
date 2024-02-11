@@ -2,7 +2,7 @@
  * Dev/staging deploy.
  */
 import {DeployConfig, WikiployLite} from 'wikiploy';
-import {build_js, build_less} from './build.js';
+import {build_js} from './build.js';
 
 import * as botpass from './bot.config.mjs';
 const ployBot = new WikiployLite(botpass);
@@ -22,8 +22,8 @@ import { userPrompt } from './promptModule.cjs';
 	}
 
 	// awaiting build
-	console.log('\nBuilding CSS & JS');
-	await build_less();
+	console.log('\nCopying JS');
+	// await build_less();
 	await build_js();
 
 	// deploy

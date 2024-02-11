@@ -15,8 +15,9 @@
 		"rollout": "npm run build && npm run deploy"
 	},	
 	"scripts": {
-		"build-less": "lessc src/_main.less dist/global.css",
-		"deploy": "node wikiploy.js"
+		"build-less": "lessc src/main.less dist/global.css",
+		"deploy": "node wikiploy.js",
+		"rollout": "npm run build-less && npm run deploy"
 	},	
 	"dependencies": {
 		"less": "4.x",
