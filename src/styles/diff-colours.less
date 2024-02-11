@@ -1,0 +1,63 @@
+/*
+	Diff colours (red-green).
+
+	The idea was to make to colours resamble the existing VE's red-green visual diff.
+
+	@author Maciej Nux
+	@license CC-BY
+	@started 2024-01
+*/
+
+/**
+	Two columns.
+*/
+.diff-addedline
+{
+	border-color: rgba(0,175,137,0.6) !important;
+	background-color: rgba(0,175,137,0.01) !important;
+	.diffchange
+	{
+		background: color-mix(in srgb, rgba(0,175,137) 35%, white);
+	}
+}
+.diff-deletedline
+{
+	border-color: rgba(209,29,19,0.7) !important;
+	background-color: rgba(209,29,19,0.005) !important;
+	.diffchange
+	{
+		background: color-mix(in srgb, rgba(209,29,19) 15%, white);
+		text-decoration: rgba(200,0,0,0.4) line-through;
+	}
+}
+/**
+	Inline (aka single column).
+*/
+:is(.mw-diff-inline-deleted, .mw-diff-inline-changed, .mw-diff-inline-moved) del
+{
+	background: color-mix(in srgb, rgba(209,29,19) 15%, white);
+	text-decoration: rgba(200,0,0,0.4) line-through;
+}
+:is(.mw-diff-inline-added, .mw-diff-inline-changed, .mw-diff-inline-moved) ins
+{
+	background: color-mix(in srgb, rgba(0,175,137) 50%, white);
+	outline: 1px solid rgba(0,175,137,0.6);
+	outline-offset: -2px;
+}
+.mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-ins
+{
+	background: color-mix(in srgb, rgba(0,175,137) 50%, white);
+}
+.mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-del
+{
+	background: color-mix(in srgb, rgba(209,29,19) 15%, white);
+	text-decoration: rgba(200,0,0,0.4) line-through;
+}
+/*
+	Legendary flip.
+	(why was that added-removed? removed are always on the left)
+*/
+.mw-diff-inline-legend {
+	display:flex;
+	flex-direction: row-reverse;
+}
