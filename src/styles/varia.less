@@ -1,235 +1,28 @@
-/* @sa [[User:Nux/global.js]] */
-/* @sa [[User:Nux/vector.js]] */
-/* @sa [[User:Nux/vector.css]] */
-/* @sa [[User:Nux/common.js]] */
-/* @sa [[User:Nux/common.css]] */
-/**
-	Dev version.
-	https://github.com/Eccenux/wiki-global-scripts
-*/
-/*
-	Tweaks and fixes.
-	[[w:en:Wikipedia:Tools/Navigation popups]]
-*/
-.popup_menu:hover {
-  box-shadow: 0 0 5px 5px rgba(179, 179, 255, 0.3);
-}
-/* colors for testing *
-.popup_menu li::after,
-.popup_menu li::before,
-.popup_menu::after,
-.popup_menu::before {
-	background: #5554;
-}
-.popup_menu li {
-	background:white;
-}
-/* trapezoid guide for the cursor */
-.popup_menu::before {
-  content: '';
-  display: block;
-  position: absolute;
-  height: 1.5em;
-  top: -1.4em;
-  left: -1.2em;
-  width: calc(2 * var(--navpop-m-len, 6ch));
-  transform: perspective(1px) rotateX(1deg);
-}
-/* make the trapezoid go behing menu items */
-.popup_menu::before {
-  z-index: 1;
-}
-.popup_menu li {
-  position: relative;
-  z-index: 2;
-}
-/* additional hover margin on the sides */
-.popup_menu li::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  height: calc(100% + 0.5em);
-  left: -1.7em;
-  width: 1.7em;
-}
-.popup_menu li::after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  height: calc(100% + 0.5em);
-  left: calc(10em - 1px);
-  /* depends on the width of the menu */
-  width: 1em;
-}
 /*
 	Minor
+
+	@author Maciej Nux
+	@license PD-trivia / CC0
 */
 /* viewit tab with no real use...  */
 #ca-viewitgallery {
-  display: none;
+	display: none;
 }
 /* lang on special pages */
 .ns-special #p-lang-btn {
-  display: none;
+	display: none;
 }
+
 /* [[phab:T330386]] DiscussionTools new topic button flickers on Firefox mobile */
 .ext-discussiontools-init-new-topic-open .ext-discussiontools-init-new-topic,
 .ext-discussiontools-init-new-topic-opened .ext-discussiontools-init-new-topic,
 .client-nojs .ext-discussiontools-init-new-topic {
-  transform: none !important;
-  transition: none !important;
-  position: sticky !important;
+	transform: none !important;
+	transition: none !important;
+	position: sticky !important;
 }
+
 /* Anti-shake for customMenuItems; [[Wikipedia:pl:Wikipedysta:Nux/personalizacja.js]] */
 .vector-user-links.vector-user-links-wide {
-  min-width: 32em;
-}
-/*
-	Icons on links in a sidebar.
-*/
-/* wide page tools */
-#vector-page-tools-pinned-container .vector-page-tools {
-  /* width: 140px; */
-  width: 12em !important;
-}
-/* Wikidata link (en.wiki at al) */
-#t-wikibase span::before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/66/Wikidata-logo-en.svg);
-  background-size: 0.9em;
-  width: 0.9em;
-  height: 0.9em;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  margin-bottom: -1px;
-  margin-right: 0.2ch;
-  margin-left: 0;
-  content: " ";
-  display: inline-block;
-  box-sizing: border-box;
-}
-/* Current revision link */
-#t-permalink span::before {
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/a/a1/Clock-By-Atif_-Arshad-1230728.svg);
-  background-size: 0.9em;
-  width: 0.9em;
-  height: 0.9em;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  margin-bottom: -1px;
-  margin-right: 0.5ch;
-  margin-left: 0;
-  content: " ";
-  display: inline-block;
-  box-sizing: border-box;
-}
-/* Edit interlanguage links (en.wiki at al) */
-.wb-langlinks-link > a::before {
-  background-image: url(/w/load.php?modules=skins.vector.icons&image=language&format=original&skin=vector-2022&version=ia7tj);
-  background-size: 0.9em;
-  width: 0.9em;
-  height: 0.9em;
-  background-repeat: no-repeat;
-  background-position: left bottom;
-  margin-bottom: -1px;
-  margin-right: 0.5ch;
-  margin-left: 0;
-  content: " ";
-  display: inline-block;
-  box-sizing: border-box;
-}
-.vector-feature-page-tools-enabled .vector-pinnable-element .mw-list-item a,
-.vector-dropdown-content .mw-list-item a {
-  display: inline-block;
-}
-/**
-	Edit form elements order.
-	
-	Przenieś część rzeczy na górę.
-	(efektywnie zbliża podgląd do przycisków)
-*/
-#editform {
-  display: grid;
-}
-.mw-editTools {
-  grid-row-start: 1;
-}
-.templatesUsed {
-  grid-row-start: 2;
-}
-.limitreport {
-  grid-row-start: 3;
-}
-body:not(.nux-editToolsCollapse-done) .mw-editTools {
-  display: none;
-}
-body .templatesUsed {
-  margin-top: 0;
-}
-/* [[User_talk:Nux/collapseEditReports.js]] */
-/* [[m:User_talk:Nux/collapseEditReports.js]] */
-body:not(.nux-collapseEditReports-done) #editform .templatesUsed > ul,
-body:not(.nux-collapseEditReports-done) #editform .wikibase-entity-usage > ul,
-body:not(.nux-collapseEditReports-done) #editform .limitreport > ul,
-body:not(.nux-collapseEditReports-done) #editform .templatesUsed > div:nth-child(2),
-body:not(.nux-collapseEditReports-done) #editform .wikibase-entity-usage > div:nth-child(2),
-body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2) {
-  display: none !important;
-}
-/* Mobile Watchlist. */
-@media (hover: none) and (pointer: coarse) {
-  /*
-		Fixing button spacing (classic, fat fingers problem).
-
-		li.mw-changeslist-line
-			span.mw-changeslist-line-prefix
-				a.mw-unwatch-link
-				a.mw-watch-link
-			span.mw-changeslist-line-inner
-				div.mw-changeslist-links
-				...
-				span.mw-pager-tools
-	*/
-  li.mw-changeslist-line {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5em;
-  }
-  li.mw-changeslist-line .mw-changeslist-line-prefix {
-    width: auto;
-    height: auto;
-  }
-  li.mw-changeslist-line .mw-changeslist-line-inner {
-    display: contents;
-  }
-  li.mw-changeslist-line::before,
-  li.mw-changeslist-line .mw-changeslist-line-inner > :empty {
-    display: none !important;
-  }
-  li.mw-changeslist-line .mw-changeslist-line-inner > *,
-  ul.mw-contributions-list li > * {
-    margin: 0;
-  }
-  li.mw-changeslist-line .mw-changeslist-line-prefix a {
-    padding: 0.2em 0.6em;
-    background: whitesmoke;
-    display: inline-block;
-    box-sizing: border-box;
-  }
-  li.mw-changeslist-line .mw-pager-tools {
-    padding-top: 0.8em;
-  }
-  li.mw-changeslist-line .mw-tag-marker {
-    border-radius: 0.6em;
-  }
-  li.mw-changeslist-line .mw-userlink {
-    padding: 0 !important;
-  }
-  /* unwatched (default style doesn't work due to display:contents) */
-  .mw-changelist-line-inner-unwatched > * {
-    opacity: 0.5;
-    text-decoration: line-through;
-  }
+	min-width: 32em;
 }
