@@ -10,16 +10,16 @@
 	},
 	"scripts-future": {
 		"build-js": "browserify src/main.js -o jsbot.js",
-		"build-less": "lessc src/_main.less dist/global.css",
 		"build": "npm run build-js && npm run build-less",
 		"deploy": "node wikiploy.js",
 		"rollout": "npm run build && npm run deploy"
 	},	
 	"scripts": {
+		"build-less": "lessc src/_main.less dist/global.css",
 		"deploy": "node wikiploy.js"
 	},	
 	"dependencies": {
 		"less": "4.x",
-		"wikiploy": "1.x"
+		"wikiploy": "2.x"
 	}
 }
