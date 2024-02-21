@@ -311,3 +311,8 @@ body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2
   display: flex;
   flex-direction: row-reverse;
 }
+#t-upload,
+#t-urlshortener-qrcode,
+#t-urlshortener {
+  display: none;
+}
