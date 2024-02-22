@@ -6,12 +6,18 @@
 	"license": "MIT",
 	"type": "module",
 	"devDependencies": {
+		// Linter
 		"eslint": "8.x",
+		// for the tranpliation PoC
+		// see: https://github.com/npm/feedback/discussions/56
 		"json5": "^2.2.3",
+		// CSS compilation
 		"less": "4.x",
-		"wikiploy": "2.x"
+		// deploy to wikipedia
+		"wikiploy": "2.x",
 	},
 	"scripts-future": {
+		// move this to Gulp? seems faster
 		"build-js": "browserify src/main.js -o jsbot.js",
 		"build": "npm run build-js && npm run build-less",
 		"deploy": "node wikiploy.js",
