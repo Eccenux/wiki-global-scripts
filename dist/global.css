@@ -256,6 +256,13 @@ body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2
     opacity: 0.5;
     text-decoration: line-through;
   }
+  /* watchlist seen/unseen status */
+  ul .mw-changeslist-line .mw-title {
+    font-weight: bold;
+  }
+  ul .mw-changeslist-line:not(.mw-changeslist-line-watched) .mw-title {
+    font-weight: normal;
+  }
 }
 /*
 	Diff colours (red-green).
@@ -302,14 +309,6 @@ body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2
 .mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-del {
   background: color-mix(in srgb, rgba(209, 29, 19) 15%, white);
   text-decoration: rgba(200, 0, 0, 0.4) line-through;
-}
-/*
-	Legendary flip.
-	(why was that added-removed? removed are always on the left)
-*/
-.mw-diff-inline-legend {
-  display: flex;
-  flex-direction: row-reverse;
 }
 /* Tools tweaks */
 #t-upload,
