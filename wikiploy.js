@@ -1,24 +1,17 @@
 /**
  * Dev/staging deploy.
  */
-import {DeployConfig, WikiployLite} from 'wikiploy';
+import {DeployConfig, Wikiploy, setupSummary } from 'wikiploy';
 
 import * as botpass from './bot.config.mjs';
-const ployBot = new WikiployLite(botpass);
+const ployBot = new Wikiploy(botpass);
 
 // default site
 ployBot.site = "meta.wikimedia.org"; 
 
-import { userPrompt } from './promptModule.cjs';
-
 (async () => {
 	// custom summary from a prompt
-	const summary = await userPrompt('Please enter a summary of changes (empty for default summary):');
-	if (typeof summary === 'string' && summary.length) {
-		ployBot.summary = () => {
-			return summary;
-		}
-	}
+	await setupSummary(ployBot);
 
 	// deploy
 	console.log('\nDeploy CSS & JS');
