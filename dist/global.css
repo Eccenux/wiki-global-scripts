@@ -291,23 +291,30 @@ body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2
   background: color-mix(in srgb, rgba(209, 29, 19) 15%, white);
   text-decoration: rgba(200, 0, 0, 0.4) line-through;
 }
+:is(.diff-deletedline,.diff-addedline) .diffchange {
+  color: black;
+}
 /**
 	Inline (aka single column).
 */
 :is(.mw-diff-inline-deleted, .mw-diff-inline-changed, .mw-diff-inline-moved) del {
   background: color-mix(in srgb, rgba(209, 29, 19) 15%, white);
+  color: black;
   text-decoration: rgba(200, 0, 0, 0.4) line-through;
 }
 :is(.mw-diff-inline-added, .mw-diff-inline-changed, .mw-diff-inline-moved) ins {
   background: color-mix(in srgb, rgba(0, 175, 137) 50%, white);
+  color: black;
   outline: 1px solid rgba(0, 175, 137, 0.6);
   outline-offset: -2px;
 }
 .mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-ins {
   background: color-mix(in srgb, rgba(0, 175, 137) 50%, white);
+  color: black;
 }
 .mw-diff-table-prefix .mw-diff-inline-legend .mw-diff-inline-legend-del {
   background: color-mix(in srgb, rgba(209, 29, 19) 15%, white);
+  color: black;
   text-decoration: rgba(200, 0, 0, 0.4) line-through;
 }
 /* Tools tweaks */
