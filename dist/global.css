@@ -96,6 +96,12 @@
 .vector-user-links.vector-user-links-wide {
   min-width: 32em;
 }
+/* Review revert */
+#mw-fr-submit-unaccept.cdx-button--action-destructive {
+  background-color: #fff0ff;
+  color: #838;
+  border-color: #848;
+}
 /*
 	Icons on links in a sidebar.
 
