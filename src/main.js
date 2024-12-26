@@ -126,3 +126,8 @@ if (mw.config.get("wgCanonicalNamespace") == "MediaWiki"
 if ( mw.config.get('wgNamespaceNumber') === 0 ) {
 	mw.loader.load("https://meta.wikimedia.org/w/index.php?title=User:Nux/WikilinQs.js&action=raw&ctype=text/javascript");
 }
+
+// [[User:Nux/WDcopy.js]]
+if ( mw.config.get('wgNamespaceNumber') === 0 ) {
+	mw.loader.load("https://meta.wikimedia.org/w/index.php?title=User:Nux/WDcopy.js&action=raw&ctype=text/javascript");
+}

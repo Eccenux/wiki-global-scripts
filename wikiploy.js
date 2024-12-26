@@ -21,6 +21,10 @@ ployBot.site = "meta.wikimedia.org";
 		dst: '~/global.js',
 	}));
 	configs.push(new DeployConfig({
+		src: 'src/WDcopy.js',
+		dst: '~/WDcopy.js',
+	}));
+	configs.push(new DeployConfig({
 		src: 'dist/global.css',
 		dst: '~/global.css',
 	}));
