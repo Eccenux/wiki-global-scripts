@@ -1,0 +1,31 @@
+/* ==UserStyle==
+@name           Języki UX
+@description    Poprawka układu menu wyboru języków.
+@author         Nux
+==/UserStyle== */
+
+html body {
+	.uls-language-block {
+		display: flex !important;
+		flex-wrap: wrap;
+		max-width: 30em !important;
+		margin-left: 20px !important;
+
+		& > .columns {
+			display: contents !important;
+		}
+		
+		& > ul > li {
+			margin-left: 0;
+		}
+		
+		// favs
+		.interwiki-en,.interwiki-pl,.interwiki-de,.interwiki-fr {
+			font-weight: bold;
+			font-style: italic;
+		}
+	}
+	.uls-wide {
+		min-width: 0;
+	}
+}
