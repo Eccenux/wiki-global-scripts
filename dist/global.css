@@ -102,6 +102,10 @@
   color: #838;
   border-color: #848;
 }
+/* 2025 code editor */
+.cm-tooltip-fold.cm-tooltip.cm-tooltip-above {
+  display: none;
+}
 /*
 	Icons on links in a sidebar.
 
@@ -331,4 +335,31 @@ body:not(.nux-collapseEditReports-done) #editform .limitreport > div:nth-child(2
 }
 #vector-page-tools #t-specialpages {
   display: none;
+}
+/* ==UserStyle==
+@name           Języki UX
+@description    Poprawka układu menu wyboru języków.
+@author         Nux
+==/UserStyle== */
+html body .uls-language-block {
+  display: flex !important;
+  flex-wrap: wrap;
+  max-width: 30em !important;
+  margin-left: 20px !important;
+}
+html body .uls-language-block > .columns {
+  display: contents !important;
+}
+html body .uls-language-block > ul > li {
+  margin-left: 0;
+}
+html body .uls-language-block .interwiki-en,
+html body .uls-language-block .interwiki-pl,
+html body .uls-language-block .interwiki-de,
+html body .uls-language-block .interwiki-fr {
+  font-weight: bold;
+  font-style: italic;
+}
+html body .uls-wide {
+  min-width: 0;
 }
