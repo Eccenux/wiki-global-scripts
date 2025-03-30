@@ -1,5 +1,5 @@
 /**
- * WikiData ID copy-to-clipboard.
+ * WikiData copy-to-clipboard.
  * 
  * Add a button to copy WD item id (Q) for the current article.
  * The button is shown beside the "Wikidata item" link.
@@ -12,7 +12,7 @@
  * 
  * Deployed with love using Wikiploy: [[Wikipedia:Wikiploy]]
  */
-function addWdIdCopyButton() {
+function addWdCopyButton(o) {
 	// Find the #t-wikibase container
 	const container = document.querySelector("#t-wikibase");
 	if (!container) return; // Exit if container not found
@@ -23,8 +23,8 @@ function addWdIdCopyButton() {
 
 	// Create the button
 	const button = document.createElement("button");
-	button.innerText = "📋Q";
-	button.title = "Copy Q";
+	button.innerText = o.label;
+	button.title = o.title;
 	button.style.cssText = `
 		padding: .1em .3em;
 		font-size: 75%;
@@ -38,9 +38,7 @@ function addWdIdCopyButton() {
 			const match = link.href.match(/.+\/(Q\d+)/); // Extract Q-ID
 			if (match) {
 				const qid = match[1];
-				navigator.clipboard.writeText(qid) // Copy to clipboard
-					.then(() => showToast(`Copied: ${qid}`))
-					.catch(err => {alert("Copy failed!"); console.error(err);});
+				o.action(qid, showToast);
 			}
 		}
 	};
@@ -83,7 +81,46 @@ function addWdIdCopyButton() {
 	}
 }
 
+/**
+ * WikiData ID copy-to-clipboard.
+ */
+function addWdIdCopyButton() {
+	let options = {
+		label: "📋Q",
+		title: "Copy Q",
+		action: (qid, showToast) => {
+			navigator.clipboard.writeText(qid) // Copy to clipboard
+				.then(() => showToast(`Copied: ${qid}`))
+				.catch(err => {alert("Copy failed!"); console.error(err);})
+			;
+		}
+	};
+	addWdCopyButton(options);
+}
+/**
+ * Create and copy {{link-interwiki}} to clipboard.
+ */
+function addWdLinkInterwikiCopyButton() {
+	let tpl = (art, tekst, qid) => `{{link-interwiki|${art}|tekst=${tekst}|Q=${qid}}}`;
+
+	let options = {
+		label: "📋{LI}",
+		title: "Copy {{link-interwiki}}",
+		action: (qid, showToast) => {
+			let art = mw.config.get('wgTitle');
+			let tekst = art.replace(/ \(.+\)$/, '');
+			let wikitext = tpl(art, tekst, qid);
+			navigator.clipboard.writeText(wikitext) // Copy to clipboard
+				.then(() => showToast(`Copied: ${wikitext}`))
+				.catch(err => {alert("Copy failed!"); console.error(err);})
+			;
+		}
+	};
+	addWdCopyButton(options);
+}
+
 // if/when ready
 $(() => {
 	addWdIdCopyButton();
+	addWdLinkInterwikiCopyButton();
 });
