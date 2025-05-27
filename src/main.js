@@ -3,6 +3,8 @@
 /* @sa [[User:Nux/vector.css]] */
 /* @sa [[User:Nux/common.js]] */
 /* @sa [[User:Nux/common.css]] */
+/* @sa [[pl:User:Nux/personalizacja.js]] (loaded globally) */
+/* @sa [[pl:User:Nux/personalizacja.css]] (loaded globally) */
 
 /**
 	Dev version.
