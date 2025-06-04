@@ -9,7 +9,7 @@ class CustomExtrasDropdown {
 			changeContentModel: '⚙️ Zmień model treści',
 			authors: {
 				icon: '🧑‍🤝‍🧑',
-				label: 'Info-autorzy',
+				label: 'Info-autorzy↗️',
 				title: 'Autorzy i inne stats (otwiera się w nowym tabie)',
 			},
 			purge: {
