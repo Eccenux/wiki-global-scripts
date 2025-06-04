@@ -4,6 +4,8 @@
 class CustomExtrasDropdown {
 	constructor() {
 		this.portletId = 'p-mytest';
+
+		this.rightsCacheTtl = 2 * 24 * 60 * 60; // [in seconds]
 		
 		this.defaultConfig = {
 			changeContentModel: '⚙️ Zmień model treści',
@@ -32,19 +34,19 @@ class CustomExtrasDropdown {
 		// create a dropdown menu in Vector legacy and Vector
 		const p = mw.util.addPortlet( this.portletId, 'Extras', '#p-cactions' );
 
-		let config = this.getConfig();
-		this.addItems(config);
-
 		// append menu
 		if ( mw.config.get("skin") === 'vector-2022' ) {
 			$( '#' + this.portletId + '-dropdown' ).appendTo( inMenu );
 		} else {
 			$( p ).appendTo( inMenu );
 		}
+
+		let config = this.getConfig();
+		this.addItems(config);
 	}
 
 	/** Items. */
-	addItems (config) {
+	async addItems (config) {
 		const pageTitle = mw.config.get('wgPageName');
 		const pageTitleE = encodeURIComponent( pageTitle );
 		const websiteE = encodeURIComponent( mw.config.get('wgServerName') )
@@ -61,7 +63,11 @@ class CustomExtrasDropdown {
 			this.anchorAttrs(link, '_blank', c.title);
 		}
 
-		if (config.changeContentModel) {
+		// console.time('getRights');
+		let rights = await this.getCachedUserRights();
+		// console.timeEnd('getRights');
+
+		if (config.changeContentModel && rights.includes('editcontentmodel')) {
 			mw.util.addPortletLink( this.portletId, `/wiki/Special:ChangeContentModel/${pageTitle}`, config.changeContentModel );
 		}
 	}
@@ -114,6 +120,42 @@ class CustomExtrasDropdown {
 			;
 		});
 	}
+
+	/** Reads and caches user rights per domain. */
+	async getCachedUserRights() {
+		const cacheKey = `userjs.CustomExtrasDropdown.userRights`;
+		const cacheTtl = this.rightsCacheTtl * 1000;
+		const cached = localStorage.getItem(cacheKey);
+
+		if (cached) {
+			try {
+				const { rights, timestamp } = JSON.parse(cached);
+				if (Date.now() - timestamp < cacheTtl) {
+					if (Array.isArray(rights)) {
+						return rights;
+					} else {
+						console.warn('[ced]', 'invalid value in cache', rights);
+					}
+				}
+			} catch (e) {
+				// ignore broken cache
+				console.warn('[ced]', 'unable to read cache', e);
+			}
+		}
+
+		const rights = await mw.user.getRights();
+		localStorage.setItem(cacheKey, JSON.stringify({
+			rights,
+			timestamp: Date.now()
+		}));
+		if (Array.isArray(rights)) {
+			return rights;
+		} else {
+			console.warn('[ced]', 'got invalid value from mw.user.getRights', rights);
+			return [];
+		}
+	}
+
 }
 
 (function(){
