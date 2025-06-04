@@ -119,8 +119,11 @@ class CustomExtrasDropdown {
 (function(){
 	let ced = new CustomExtrasDropdown();
 	mw.hook('userjs.CustomExtrasDropdown.loaded').fire(ced);
-	$(function() {
-		ced.init();
-		mw.hook('userjs.CustomExtrasDropdown.ready').fire(ced);
+	
+	mw.loader.using(["mediawiki.util"]).then( function() {
+		$(function() {
+			ced.init();
+			mw.hook('userjs.CustomExtrasDropdown.ready').fire(ced);
+		});
 	});
 })();

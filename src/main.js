@@ -30,7 +30,7 @@ var is_mobileSkin = mw.config.get('skin') == 'minerva';
 var is_botSkin = mw.config.get('skin') == 'monobook';	// ~jsbot
 var is_special = mw.config.get('wgCanonicalNamespace') == "Special";
 
-// extras menu [[meta:User:Nux/extrasDropdown.js]]
+// extras menu [[User:Nux/extrasDropdown.js]]
 if (!is_special) {
 	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:Nux/extrasDropdown.js' );
 }
@@ -101,24 +101,6 @@ if (is_edit)
 	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/css&smaxage=86400&maxage=259200&title=Wikipedysta:Nux/SearchBox.css", "text/css");
 	//mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=Wikipedysta:Nux/SearchBox.js");
 	mw.loader.load("https://pl.wikipedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=Wikipedysta:Nux/SearchBox.dev.js");
-}
-
-// author-stats icon
-if ( mw.config.get('wgNamespaceNumber') == 0 ) {
-	$(function() {
-		var icon = '🧑‍🤝‍🧑'; // ℹ️ 🧑‍🤝‍🧑 👥
-		var portletId = mw.config.get( 'skin' ) === 'timeless' ? 'p-pagemisc' : 'p-tb';
-		var linkTitle = icon + ' Info-autorzy';
-		var website = encodeURIComponent( mw.config.get('wgServerName') );
-		var pageTitle = encodeURIComponent( mw.config.get('wgPageName') );
-		var url = 'https://xtools.wmcloud.org/articleinfo/' + website + '/' + pageTitle;
-		var link = mw.util.addPortletLink( portletId, url, linkTitle, 'author-stats-link' );
-		if (link.nodeName !== 'A') {
-			link = link.querySelector('a');
-		}
-		link.setAttribute( 'target', '_blank' );
-		link.setAttribute( 'title', 'Autorzy i inne stats (otwiera się w nowym tabie)' );
-	});
 }
 
 // [[MediaWiki:Gadgets-definition]] formatter (links and stuff)
