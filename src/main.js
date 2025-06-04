@@ -28,6 +28,12 @@
 var is_edit = mw.config.get("wgAction") == "edit" || mw.config.get("wgAction") == "submit";
 var is_mobileSkin = mw.config.get('skin') == 'minerva';
 var is_botSkin = mw.config.get('skin') == 'monobook';	// ~jsbot
+var is_special = mw.config.get('wgCanonicalNamespace') == "Special";
+
+// extras menu [[meta:User:Nux/extrasDropdown.js]]
+if (!is_special) {
+	mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86400&title=User:Nux/extrasDropdown.js' );
+}
 
 // sync notification over tabs
 mw.loader.load( 'https://meta.wikimedia.org/w/index.php?action=raw&ctype=text/javascript&smaxage=21600&maxage=86100&title=User:Nux/notificationsSync.js' );
