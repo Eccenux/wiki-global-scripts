@@ -10,7 +10,7 @@
  * Author(s):
  * Maciej Nux Jaros
  * 
- * Deployed with love using Wikiploy: [[Wikipedia:Wikiploy]]
+ * Deployed with love using Wikiploy: [[:en:Wikipedia:Wikiploy]]
  */
 function addWdCopyButton(o) {
 	// Find the #t-wikibase container

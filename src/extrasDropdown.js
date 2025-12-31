@@ -1,5 +1,15 @@
 /**
  * Extra actions menu.
+ * 
+ * Adds a menu for all/most wiki pages.
+ * 
+ * Repository (issues, pull requests):
+ * https://github.com/Eccenux/wiki-global-scripts
+ * 
+ * Author(s):
+ * Maciej Nux Jaros
+ * 
+ * Deployed with love using Wikiploy: [[:en:Wikipedia:Wikiploy]]
  */
 class CustomExtrasDropdown {
 	constructor() {
@@ -73,6 +83,7 @@ class CustomExtrasDropdown {
 	}
 
 	anchorAttrs (link, target, title) {
+		if (!link) return;
 		if (link.nodeName !== 'A') {
 			link = link.querySelector('a');
 		}
