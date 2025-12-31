@@ -368,3 +368,18 @@ html body .uls-language-block .interwiki-fr {
 html body .uls-wide {
   min-width: 0;
 }
+/**
+	Dark mode.
+
+	W zasadzie powinno być jeszcze dla automatu.
+	https://pl.wikipedia.org/wiki/Pomoc:Tryb_ciemny#Dostosowywanie_si%C4%99_do_wybranego_motywu
+*/
+/* Elementy edytora kodu. */
+html.skin-theme-clientpref-night #editform {
+  background-color: var(--background-color-base) !important;
+}
+html.skin-theme-clientpref-night .wikiEditor-ui-toolbar img[alt="Wstaw szablon cytowania"],
+html.skin-theme-clientpref-night .wikiEditor-ui-toolbar a[rel="code"],
+html.skin-theme-clientpref-night .wikiEditor-ui-toolbar a[rel="syntaxhighlightInlineWiki"] {
+  filter: invert();
+}
