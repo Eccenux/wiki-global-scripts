@@ -374,7 +374,6 @@ html body .uls-wide {
 	W zasadzie powinno być jeszcze dla automatu.
 	https://pl.wikipedia.org/wiki/Pomoc:Tryb_ciemny#Dostosowywanie_si%C4%99_do_wybranego_motywu
 */
-/* Elementy edytora kodu. */
 html.skin-theme-clientpref-night #editform {
   background-color: var(--background-color-base) !important;
 }
@@ -382,4 +381,8 @@ html.skin-theme-clientpref-night .wikiEditor-ui-toolbar img[alt="Wstaw szablon c
 html.skin-theme-clientpref-night .wikiEditor-ui-toolbar a[rel="code"],
 html.skin-theme-clientpref-night .wikiEditor-ui-toolbar a[rel="syntaxhighlightInlineWiki"] {
   filter: invert();
+}
+html.skin-theme-clientpref-night .mw-echo-ui-notificationItemWidget-markAsReadButton .mw-echo-ui-toggleReadCircleButtonWidget-circle-unread {
+  background-color: #010;
+  border: 1px solid #565;
 }
