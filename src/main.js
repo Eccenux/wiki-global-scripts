@@ -12,7 +12,7 @@
 */
 
 // test https://www.mediawiki.org/wiki/VisualEditor/Suggestion_Mode
-mw.loader.load( 'https://meta.wikimedia.org/w/index.php?title=User:DLynch_(WMF)/alwaysbesuggesting.js&action=raw&ctype=text/javascript' );
+// mw.loader.load( 'https://meta.wikimedia.org/w/index.php?title=User:DLynch_(WMF)/alwaysbesuggesting.js&action=raw&ctype=text/javascript' );
 
 /*
 	Cache
