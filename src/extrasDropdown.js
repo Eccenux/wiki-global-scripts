@@ -29,6 +29,11 @@ class CustomExtrasDropdown {
 				label: 'Odśwież',
 				title: 'Wyczyść pamięć podręczną dla tej strony\n(Shift: przeładuj tablice linków, Ctrl: przeładuj rekursywnie)',
 			},
+			diffLast: {
+				icon: '🔀',
+				label: 'Ost. zmiana',
+				title: 'Link do ostatniej zmiany (diff).',
+			},
 		};
 	}
 
@@ -79,6 +84,12 @@ class CustomExtrasDropdown {
 
 		if (config.changeContentModel && rights.includes('editcontentmodel')) {
 			mw.util.addPortletLink( this.portletId, `/wiki/Special:ChangeContentModel/${pageTitle}`, config.changeContentModel );
+		}
+
+		if (config.diffLast && mw.config.get('wgRevisionId') > 0) {
+			let c = config.diffLast;
+			let label = c.icon + ' ' + c.label;
+			mw.util.addPortletLink( this.portletId, `/w/index.php?title=${pageTitleE}&diff=cur&oldid=prev`, label, null, c.title );
 		}
 	}
 
