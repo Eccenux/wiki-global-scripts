@@ -86,7 +86,8 @@ class CustomExtrasDropdown {
 			mw.util.addPortletLink( this.portletId, `/wiki/Special:ChangeContentModel/${pageTitle}`, config.changeContentModel );
 		}
 
-		if (config.diffLast && mw.config.get('wgRevisionId') > 0) {
+		// if (config.diffLast && mw.config.get('wgRevisionId') > 0) { // no need to check, menu is not added on special pages anyway... and wgRevisionId=0 on action=history
+		if (config.diffLast) {
 			let c = config.diffLast;
 			let label = c.icon + ' ' + c.label;
 			mw.util.addPortletLink( this.portletId, `/w/index.php?title=${pageTitleE}&diff=cur&oldid=prev`, label, null, c.title );
