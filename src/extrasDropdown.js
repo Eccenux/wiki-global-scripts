@@ -42,7 +42,7 @@ class CustomExtrasDropdown {
 				title: 'Skopiuj trwały link do schowka; działa również dla diff=cur.',
 			},
 			pageLink: {
-				icon: '[§]',
+				icon: '[[§]]',
 				label: 'Link do strony',
 				copiedLabel: '✅ Skopiowano do schowka.',
 				errorLabel: '❌ Błąd kopiowania (sprawdź log).',
@@ -221,7 +221,7 @@ class CustomExtrasDropdown {
 
 			let x = e.pageX;
 			let y = e.pageY;
-			actionHref = this.getPermalink(); // might have changed (e.g. anchor, but also history push)
+			actionHref = me.getPermalink(); // might have changed (e.g. anchor, but also history push)
 			navigator.clipboard.writeText(actionHref)
 				.then(function() {
 					me.showToast(c.copiedLabel, x, y);
