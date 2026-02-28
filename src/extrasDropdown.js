@@ -261,7 +261,7 @@ class CustomExtrasDropdown {
 		else
 		{
 			let pageTitle = mw.config.get('wgPageName');
-			hrefPermalink = `{{fullurl:${pageTitle}|oldid=${currentId}}}`;
+			hrefPermalink =  document.location.origin + mw.util.getUrl(pageTitle, { oldid: currentId });
 		}
 		return hrefPermalink;
 	}
