@@ -41,6 +41,13 @@ class CustomExtrasDropdown {
 				errorLabel: '❌ Błąd kopiowania (sprawdź log).',
 				title: 'Skopiuj trwały link do schowka; działa również dla diff=cur.',
 			},
+			pageLink: {
+				icon: '[§]',
+				label: 'Link do strony',
+				copiedLabel: '✅ Skopiowano do schowka.',
+				errorLabel: '❌ Błąd kopiowania (sprawdź log).',
+				title: 'Skopiuj link bieżącej strony do schowka (zachowuje kotwicę).',
+			},
 		};
 	}
 
@@ -76,9 +83,6 @@ class CustomExtrasDropdown {
 		if (config.purge) {
 			this.addPurgeAction(config.purge);
 		}
-		if (config.constUrl) {
-			this.addConstUrlAction(config.constUrl);
-		}
 
 		if (config.authors) {
 			let c = config.authors;
@@ -101,6 +105,13 @@ class CustomExtrasDropdown {
 			let c = config.diffLast;
 			let label = c.icon + ' ' + c.label;
 			mw.util.addPortletLink( this.portletId, `/w/index.php?title=${pageTitleE}&diff=cur&oldid=prev`, label, null, c.title );
+		}
+
+		if (config.constUrl) {
+			this.addConstUrlAction(config.constUrl);
+		}
+		if (config.pageLink) {
+			this.addPageLinkAction(config.pageLink);
 		}
 	}
 
@@ -210,6 +221,7 @@ class CustomExtrasDropdown {
 
 			let x = e.pageX;
 			let y = e.pageY;
+			actionHref = this.getPermalink(); // might have changed (e.g. anchor, but also history push)
 			navigator.clipboard.writeText(actionHref)
 				.then(function() {
 					me.showToast(c.copiedLabel, x, y);
@@ -253,6 +265,62 @@ class CustomExtrasDropdown {
 		}
 		return hrefPermalink;
 	}
+
+	/**
+	 * Action to copy a link to current/relevant page (with anchor).
+	 */
+	addPageLinkAction(c) {
+		let fullLabel = c.icon + ' ' + c.label;
+		let actionTab = mw.util.addPortletLink(
+			this.portletId,
+			'#',
+			fullLabel,
+			null,
+			c.title
+		);
+
+		const me = this;
+		$(actionTab).click(function (e) {
+			e.preventDefault();
+
+			let x = e.pageX;
+			let y = e.pageY;
+			let pageLink = me.getPageLink();
+			navigator.clipboard.writeText(pageLink)
+				.then(function() {
+					me.showToast(c.copiedLabel, x, y);
+				})
+				.catch(function(err) {
+					console.error('[ced] Copy failed', err);
+					me.showToast(c.errorLabel, x, y);
+				})
+			;
+		});
+	}
+
+	/**
+	 * Get a link of the current page (if possible).
+	 * 
+	 * @private
+	 * @returns {string} e.g. [[Zażółć gęślą jaźń#Zobacz też|Zażółć gęślą jaźń § Zobacz też]].
+	 */
+	getPageLink() {
+		let hash = decodeURIComponent(document.location.hash).replaceAll(/_/g, ' ');
+		let page = mw.config.get('wgRelevantPageName').replaceAll(/_/g, ' ');
+		let hashText = hash.replace(/^#/, '').trim();
+
+		let full = `${page}${hash}`;
+
+		// If page has namespace → use part after first colon
+		let colonIndex = page.indexOf(':');
+		if (colonIndex !== -1) {
+			page = page.substring(colonIndex + 1);
+		}
+		let label = (hashText) ? `${page} § ${hashText}` : page;
+
+		return label !== full ? `[[${full}|${label}]]` : `[[${full}]]`;
+	}
+
 
 	/**
 	 * Show a quick message.
