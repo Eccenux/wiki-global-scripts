@@ -34,6 +34,13 @@ class CustomExtrasDropdown {
 				label: 'Ost. zmiana',
 				title: 'Link do ostatniej zmiany (diff).',
 			},
+			constUrl: {
+				icon: '🕑',
+				label: 'Trwały link',
+				copiedLabel: '✅ Skopiowano do schowka.',
+				errorLabel: '❌ Błąd kopiowania (sprawdź log).',
+				title: 'Skopiuj trwały link do schowka; działa również dla diff=cur.',
+			},
 		};
 	}
 
@@ -67,7 +74,10 @@ class CustomExtrasDropdown {
 		const websiteE = encodeURIComponent( mw.config.get('wgServerName') )
 
 		if (config.purge) {
-			this.addPurge(config.purge);
+			this.addPurgeAction(config.purge);
+		}
+		if (config.constUrl) {
+			this.addConstUrlAction(config.constUrl);
 		}
 
 		if (config.authors) {
@@ -104,9 +114,10 @@ class CustomExtrasDropdown {
 	}
 
 	/**
-	 * Purge action by [[User:Msz2001]]
+	 * Purge action.
+	 * Inspired by [[User:Msz2001]]
 	 */
-	addPurge(c) {
+	addPurgeAction(c) {
 		// Zwykły link do ?action=purge
 		let purgeHref = mw.util.getUrl( null, { action: 'purge' } );
 		let purgeTab = mw.util.addPortletLink(
@@ -179,6 +190,103 @@ class CustomExtrasDropdown {
 		}
 	}
 
+	/**
+	 * Action to copy const URL.
+	 */
+	addConstUrlAction(c) {
+		let actionHref = this.getPermalink();
+		let fullLabel = c.icon + ' ' + c.label;
+		let actionTab = mw.util.addPortletLink(
+			this.portletId,
+			actionHref,
+			fullLabel,
+			null,
+			c.title
+		);
+
+		const me = this;
+		$(actionTab).click(function (e) {
+			e.preventDefault();
+
+			let x = e.pageX;
+			let y = e.pageY;
+			navigator.clipboard.writeText(actionHref)
+				.then(function() {
+					me.showToast(c.copiedLabel, x, y);
+				})
+				.catch(function(err) {
+					console.error('[ced] Copy failed', err);
+					me.showToast(c.errorLabel, x, y);
+				})
+			;
+		});
+	}
+
+	/**
+	 * Get constant link of the current page (if possible).
+	 * 
+	 * @see Borrowed from: https://pl.wikipedia.org/wiki/Wikipedysta:Nux/replylinks.dev.js#:~:text=hrefPermalink
+	 * 
+	 * @private
+	 * @returns {string} permanent URL.
+	 */
+	getPermalink()	{
+		let currentUrl = document.location.href; //.replace(/#.+/, '');
+		let currentId = mw.config.get('wgCurRevisionId');
+
+		let hrefPermalink = '';
+		// means it is a permalink (comparing versions, showing one specific version or a diff.)
+		if (/[?&]oldid=/.test(currentUrl))
+		{
+			// diff=cur is fluid, replace to static
+			if (currentUrl.includes('diff=cur'))
+			{
+				currentUrl = currentUrl.replace(/([?&])diff=cur(?=[&]|$)/, `$1diff=${currentId}`);
+			}
+			hrefPermalink = currentUrl;
+		}
+		// get latest
+		else
+		{
+			let pageTitle = mw.config.get('wgPageName');
+			hrefPermalink = `{{fullurl:${pageTitle}|oldid=${currentId}}}`;
+		}
+		return hrefPermalink;
+	}
+
+	/**
+	 * Show a quick message.
+	 * @param {string} message Non HTML message.
+	 * @param {number} x Where to roughly show the toast.
+	 * @param {number} y Where to roughly show the toast.
+	 */
+	showToast(message, x, y) {
+		const $toast = $('<div class="estrasDD-click-toast"/>')
+			.text(message)
+			.css({
+				position: 'absolute',
+				left: x + 'px',
+				top: y + 'px',
+				transform: 'translate(-50%, -120%)',
+				padding: '6px 10px',
+				background: '#333',
+				color: '#fff',
+				borderRadius: '4px',
+				fontSize: '12px',
+				opacity: 0,
+				pointerEvents: 'none',
+				zIndex: 9999
+			});
+
+		$('body').append($toast);
+
+		$toast.animate({ opacity: 1 }, 100)
+			.delay(2000)
+			.animate({ opacity: 0 }, 200, function() {
+				$toast.remove();
+			})
+		;
+	}
 }
 
 (function(){
