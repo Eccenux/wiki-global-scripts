@@ -21,7 +21,7 @@ class CustomExtrasDropdown {
 			changeContentModel: '⚙️ Zmień model treści',
 			authors: {
 				icon: '🧑‍🤝‍🧑',
-				label: 'Info-autorzy↗️',
+				label: 'Info-autorzy ↗️',
 				title: 'Autorzy i inne stats (otwiera się w nowym tabie)',
 			},
 			purge: {
@@ -36,14 +36,14 @@ class CustomExtrasDropdown {
 			},
 			constUrl: {
 				icon: '🕑',
-				label: 'Trwały link',
+				label: 'Trwały link 📋',
 				copiedLabel: '✅ Skopiowano do schowka.',
 				errorLabel: '❌ Błąd kopiowania (sprawdź log).',
 				title: 'Skopiuj trwały link do schowka; działa również dla diff=cur.',
 			},
 			pageLink: {
 				icon: '[[§]]',
-				label: 'Link do strony',
+				label: 'Link do strony 📋',
 				copiedLabel: '✅ Skopiowano do schowka.',
 				errorLabel: '❌ Błąd kopiowania (sprawdź log).',
 				title: 'Skopiuj link bieżącej strony do schowka (zachowuje kotwicę).',
