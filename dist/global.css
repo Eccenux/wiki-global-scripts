@@ -124,6 +124,7 @@
   width: 12em !important;
 }
 /* Wikidata link (en.wiki at al) */
+#wbc-editpage span::before,
 #t-wikibase span::before {
   background-image: url(https://upload.wikimedia.org/wikipedia/commons/6/66/Wikidata-logo-en.svg);
   background-size: 0.9em;
