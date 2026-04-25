@@ -23,12 +23,30 @@ if ( mw.config.get( 'wgNamespaceNumber', 0 ) >= 0 ) {
 		src.includes('//upload.wikimedia.org/')
 		&& src.includes('/commons/')
 	);
+	let commonsImgCheck = (el) => {
+		if (!el || !el.querySelector) {
+			return false;
+		}
+		let src = '';
+		let img = el.querySelector('img');
+		if (img && img.src) {
+			src = img.src;
+		} else {
+			// mobile / lazy img
+			let lazy = el.querySelector('[data-mw-src]');
+			src = lazy.getAttribute('data-mw-src');
+		}
+		if (src) {
+			return commonsSrcCheck(src);
+		}
+		return false;
+	};
 	mw.hook( 'wikipage.content' ).add( function ( $content ) {
 		$content.find('a.image, a.mw-file-description').each(function() {
 			let currVal = this.href;
 			// href=//lang.wikipedia.org/ or similar
 			if (currVal.includes(localSlashDomain)
-				&& commonsSrcCheck($(this).find('img').attr('src'))
+				&& commonsImgCheck(this)
 			) {
 				let nextVal = currVal
 					.replace(localSlashDomain, '//commons.wikimedia.org/')
@@ -38,7 +56,7 @@ if ( mw.config.get( 'wgNamespaceNumber', 0 ) >= 0 ) {
 				this.href = nextVal
 			// href=/wiki/Ns: or href=/w/index.php?title=Ns
 			} else if (currVal.startsWith('/w')
-				&& commonsSrcCheck($(this).find('img').attr('src'))
+				&& commonsImgCheck(this)
 			) {
 				let nextVal = currVal
 					.replace(localFileNSString, 'File:')
