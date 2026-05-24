@@ -363,6 +363,7 @@ class CustomExtrasDropdown {
 				position: fixed;
 				top: 5em;
 				right: 3em;
+				z-index: 10;
 				
 				opacity: .5;
 				
