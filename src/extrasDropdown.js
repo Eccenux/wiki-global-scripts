@@ -72,6 +72,7 @@ class CustomExtrasDropdown {
 
 		let config = this.getConfig();
 		this.addItems(config);
+		this.addCss();
 	}
 
 	/** Items. */
@@ -355,12 +356,30 @@ class CustomExtrasDropdown {
 			})
 		;
 	}
+
+	addCss() {
+		mw.util.addCSS(`
+			#p-mytest-dropdown {
+				position: fixed;
+				top: 5em;
+				right: 3em;
+				
+				opacity: .5;
+				
+				&:has([aria-expanded="true"]),
+				&:hover {
+					opacity: 1;
+				}
+			}
+		`);
+	}
 }
 
 (function(){
 	let ced = new CustomExtrasDropdown();
 	mw.hook('userjs.CustomExtrasDropdown.loaded').fire(ced);
 	
+	// deps: mw.util
 	mw.loader.using(["mediawiki.util"]).then( function() {
 		$(function() {
 			ced.init();
