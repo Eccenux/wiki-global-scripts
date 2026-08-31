@@ -359,6 +359,7 @@ class CustomExtrasDropdown {
 
 	addCss() {
 		mw.util.addCSS(`
+		@media screen and (min-width: 640px) {
 			#p-mytest-dropdown {
 				position: fixed;
 				top: 10em;
@@ -372,6 +373,7 @@ class CustomExtrasDropdown {
 					opacity: 1;
 				}
 			}
+		}
 		`);
 	}
 }
