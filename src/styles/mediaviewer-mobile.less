@@ -1,0 +1,29 @@
+/**
+	Replace mobile media viewer with universal (desktop) viewer
+	https://phabricator.wikimedia.org/T439309
+*/
+@media (orientation: portrait) {
+	.mw-mmv-wrapper {
+		.mw-mmv-prev-image, .mw-mmv-next-image {
+			top: auto !important;
+			bottom: 130px;
+		}
+		.mw-mmv-download-button,
+		.mw-mmv-reuse-button {
+			left: 14px;
+			right: auto;
+			top: 14px;
+			bottom: auto;
+		}
+		.mw-mmv-reuse-button {
+			top: 56px;
+		}
+	}
+}
+@media (hover: none) {
+	.mw-mmv-prev-image, .mw-mmv-next-image {
+		&.cdx-button.mw-mmv-button.mw-mmv-button {
+			background-color: #cdd4db33;
+		}
+	}
+}

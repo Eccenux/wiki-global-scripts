@@ -426,3 +426,30 @@ html.skin-theme-clientpref-night .mw-echo-ui-notificationItemWidget-markAsReadBu
   background-color: #444;
   border: 1px solid #555;
 }
+/**
+	Replace mobile media viewer with universal (desktop) viewer
+	https://phabricator.wikimedia.org/T439309
+*/
+@media (orientation: portrait) {
+  .mw-mmv-wrapper .mw-mmv-prev-image,
+  .mw-mmv-wrapper .mw-mmv-next-image {
+    top: auto !important;
+    bottom: 130px;
+  }
+  .mw-mmv-wrapper .mw-mmv-download-button,
+  .mw-mmv-wrapper .mw-mmv-reuse-button {
+    left: 14px;
+    right: auto;
+    top: 14px;
+    bottom: auto;
+  }
+  .mw-mmv-wrapper .mw-mmv-reuse-button {
+    top: 56px;
+  }
+}
+@media (hover: none) {
+  .mw-mmv-prev-image.cdx-button.mw-mmv-button.mw-mmv-button,
+  .mw-mmv-next-image.cdx-button.mw-mmv-button.mw-mmv-button {
+    background-color: #cdd4db33;
+  }
+}
