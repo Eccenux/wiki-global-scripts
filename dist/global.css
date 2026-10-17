@@ -111,6 +111,21 @@
 .cm-lint-marker-error {
   max-height: 2em;
 }
+/* Podświetlanie składni (edytor kodu, zwłasza kodu JS/CSS) */
+html.skin-theme-clientpref-night .cm-editor {
+  /* selected lines */
+  /* selected text */
+  /* cursor's line */
+}
+html.skin-theme-clientpref-night .cm-editor .cm-selectionBackground {
+  background: #f302 !important;
+}
+html.skin-theme-clientpref-night .cm-editor .cm-content ::selection {
+  background: #f302 !important;
+}
+html.skin-theme-clientpref-night .cm-editor .cm-activeLine {
+  background-color: #cc02 !important;
+}
 /*
 	Icons on links in a sidebar.
 
